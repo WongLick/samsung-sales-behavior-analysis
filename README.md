@@ -1,2 +1,2 @@
 # amazon-sales-analytics
-Analyse Amazon sales data to identify revenue trends, growth drivers, customer behavior, and business opportunities, enabling management to make data-driven decisions.
+Analyze how pricing, discounts, and customer reviews impact product ratings and customer engagement in order to optimize revenue and improve customer satisfaction.
