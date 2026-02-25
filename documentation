@@ -1,7 +1,0 @@
-1. Data cleaning
-  - Checked for duplicates (product_id & user_id)
-  - Checked for NULL values in important columns (actual_price & rating)
-  - Verified data types
-  - Checked ranges (rating in 0-5 & discount_percentage in 0-100)
-
-2. 
