@@ -1,0 +1,55 @@
+// Revenue per month
+SELECT 
+  month_year,
+  SUM(revenue_usd) AS total_revenue
+FROM samsung_sales
+GROUP BY month_year
+ORDER BY month_year;
+
+// Top 10 best performing products
+SELECT
+  product_name,
+  SUM(units_sold) AS quantity_sold,
+  SUM(revenue_usd) AS total_revenue
+FROM samsung_sales
+GROUP BY product_name
+ORDER BY total_revenue DESC
+LIMIT 10;
+
+// Effectiveness of product discount
+SELECT
+  discount_pct,
+  SUM(units_sold) AS quantity_sold,
+  SUM(revenue_usd) AS total_revenue
+FROM samsung_sales
+GROUP BY discount_pct
+ORDER BY total_revenue DESC;
+
+// Best performing region
+SELECT
+  region,
+  SUM(revenue_usd) as total_revenue
+FROM samsung_sales
+GROUP BY region
+ORDER BY total_revenue DESC;
+
+// Top 10 most returned product
+SELECT 
+  product_name,
+  category,
+  ROUND(SUM(is_returned) * 1.0 / SUM(units_sold), 3) AS return_rate
+FROM samsung_sales
+GROUP BY product_name, category
+ORDER BY return_rate DESC
+LIMIT 10;
+
+// Most satisfied region country (least return rate)
+SELECT 
+  country,
+  region,
+  ROUND(SUM(is_returned) * 1.0 / SUM(units_sold), 3) AS return_rate
+FROM samsung_sales
+GROUP BY country, region
+ORDER BY return_rate ASC
+LIMIT 5;
+  
